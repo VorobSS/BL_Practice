@@ -139,9 +139,8 @@ CREATE TABLE practice_db.employee (
 	position_id          bigint  NOT NULL  ,
 	phone                varchar(50)    ,
 	citizenship_code     int  NOT NULL  ,
-	is_identified        bool  NOT NULL DEFAULT true ,
+	is_identified        bool  NOT NULL DEFAULT true
 	CONSTRAINT pk_employee_id PRIMARY KEY ( id ),
-	CONSTRAINT unq_employee_position_id UNIQUE ( position_id )
  ) engine=InnoDB;
 
 CREATE INDEX idx_employee_citizenship_code ON practice_db.employee ( citizenship_code );
@@ -228,10 +227,9 @@ ALTER TABLE practice_db.docs MODIFY doc_type_id bigint  NOT NULL   COMMENT 'Ко
 ALTER TABLE practice_db.docs MODIFY employee_id bigint  NOT NULL   COMMENT 'Идентификатор сотрудника';
 
 CREATE TABLE practice_db.employee_office (
-	id                   bigint  NOT NULL  AUTO_INCREMENT,
-	employee_id          bigint    ,
-	office_id            bigint    ,
-	CONSTRAINT pk_employee_office_id PRIMARY KEY ( id )
+	employee_id          bigint  NOT NULL  ,
+	office_id            bigint  NOT NULL  ,
+	CONSTRAINT pk_employee_office_id PRIMARY KEY ( employee_id, office_id )
  ) engine=InnoDB;
 
 CREATE INDEX unq_employee_office_employee_id ON practice_db.employee_office ( employee_id );
@@ -239,8 +237,6 @@ CREATE INDEX unq_employee_office_employee_id ON practice_db.employee_office ( em
 CREATE INDEX unq_employee_office_office_id ON practice_db.employee_office ( office_id );
 
 ALTER TABLE practice_db.employee_office COMMENT 'Таблица, связывающая сотрудника и офис';
-
-ALTER TABLE practice_db.employee_office MODIFY id bigint  NOT NULL  AUTO_INCREMENT COMMENT 'Уникальный идентификатор';
 
 ALTER TABLE practice_db.employee_office MODIFY employee_id bigint     COMMENT 'Идентификатор сотрудника';
 
