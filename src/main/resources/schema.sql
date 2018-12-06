@@ -174,8 +174,7 @@ CREATE TABLE practice_db.office (
 	phone                varchar(50)    ,
 	is_active            bool  NOT NULL  ,
 	org_id               bigint  NOT NULL  ,
-	CONSTRAINT pk_office_id UNIQUE ( id ) ,
-	CONSTRAINT unq_office_id_org UNIQUE ( org_id ) ,
+	CONSTRAINT pk_office_id PRIMARY KEY ( id ) ,
 	CONSTRAINT unq_office_address UNIQUE ( address )
  ) engine=InnoDB;
 
