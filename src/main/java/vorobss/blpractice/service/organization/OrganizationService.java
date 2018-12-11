@@ -24,5 +24,5 @@ public interface OrganizationService {
      *
      * @return {@Organization}
      */
-    List<OrganizationView> organizations();
+//    List<OrganizationView> organizations();
 }
