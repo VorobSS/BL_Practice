@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import vorobss.blpractice.model.Employee;
 import vorobss.blpractice.service.employee.EmployeeService;
 import vorobss.blpractice.view.EmployeeView;
 
@@ -22,10 +23,14 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping(value = "/", produces = APPLICATION_JSON_VALUE)
 public class EmployeeController {
 
-    private final EmployeeService employeeService;
+//    private final EmployeeService employeeService;
+    private Employee employeeService;
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService) {
+//    public EmployeeController(EmployeeService employeeService) {
+//        this.employeeService = employeeService;
+//    }
+    public EmployeeController(Employee employeeService) {
         this.employeeService = employeeService;
     }
 
@@ -35,13 +40,16 @@ public class EmployeeController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @PostMapping("/employee")
+//    public void employee(@RequestBody EmployeeView employee) {
+//        employeeService.add(employee);
+//    }
     public void employee(@RequestBody EmployeeView employee) {
-        employeeService.add(employee);
+        employeeService = new Employee(employee.firstName, employee.lastName, employee.middleName, employee.phone);
     }
 
-    @ApiOperation(value = "Получить список всех сотрудников", httpMethod = "GET")
-    @GetMapping("/employee")
-    public List<EmployeeView> employees() {
-        return employeeService.employees();
-    }
+//    @ApiOperation(value = "Получить список всех сотрудников", httpMethod = "GET")
+//    @GetMapping("/employee")
+//    public List<EmployeeView> employees() {
+//        return employeeService.employees();
+//    }
 }

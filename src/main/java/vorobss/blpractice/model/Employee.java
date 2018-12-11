@@ -1,5 +1,7 @@
 package vorobss.blpractice.model;
 
+import vorobss.blpractice.view.EmployeeView;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
