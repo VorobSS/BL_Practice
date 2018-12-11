@@ -23,16 +23,16 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping(value = "/", produces = APPLICATION_JSON_VALUE)
 public class EmployeeController {
 
-//    private final EmployeeService employeeService;
-    private Employee employeeService;
+    private final EmployeeService employeeService;
+//    private Employee employeeService;
 
     @Autowired
-//    public EmployeeController(EmployeeService employeeService) {
-//        this.employeeService = employeeService;
-//    }
-    public EmployeeController(Employee employeeService) {
+    public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
+//    public EmployeeController(Employee employeeService) {
+//        this.employeeService = employeeService;
+//    }
 
     @ApiOperation(value = "Добавить нового сотрудника", httpMethod = "POST")
     @ApiResponses(value = {
@@ -40,12 +40,12 @@ public class EmployeeController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @PostMapping("/employee")
-//    public void employee(@RequestBody EmployeeView employee) {
-//        employeeService.add(employee);
-//    }
     public void employee(@RequestBody EmployeeView employee) {
-        employeeService = new Employee(employee.firstName, employee.lastName, employee.middleName, employee.phone);
+        employeeService.add(employee);
     }
+//    public void employee(@RequestBody EmployeeView employee) {
+//        employeeService = new Employee(employee.firstName, employee.lastName, employee.middleName, employee.phone);
+//    }
 
 //    @ApiOperation(value = "Получить список всех сотрудников", httpMethod = "GET")
 //    @GetMapping("/employee")

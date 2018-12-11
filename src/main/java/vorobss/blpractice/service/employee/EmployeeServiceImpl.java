@@ -31,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     public void add(EmployeeView view) {
         Employee employee = new Employee(view.firstName, view.lastName, view.middleName, view.phone);
-        dao.save(employee);
+//        dao.save(employee);
     }
 
     /**
