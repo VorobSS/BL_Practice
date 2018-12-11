@@ -24,15 +24,11 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
-//    private Employee employeeService;
 
     @Autowired
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
-//    public EmployeeController(Employee employeeService) {
-//        this.employeeService = employeeService;
-//    }
 
     @ApiOperation(value = "Добавить нового сотрудника", httpMethod = "POST")
     @ApiResponses(value = {
@@ -43,13 +39,10 @@ public class EmployeeController {
     public void employee(@RequestBody EmployeeView employee) {
         employeeService.add(employee);
     }
-//    public void employee(@RequestBody EmployeeView employee) {
-//        employeeService = new Employee(employee.firstName, employee.lastName, employee.middleName, employee.phone);
-//    }
 
-//    @ApiOperation(value = "Получить список всех сотрудников", httpMethod = "GET")
-//    @GetMapping("/employee")
-//    public List<EmployeeView> employees() {
-//        return employeeService.employees();
-//    }
+    @ApiOperation(value = "Получить список всех сотрудников", httpMethod = "GET")
+    @GetMapping("/employee")
+    public List<EmployeeView> employees() {
+        return employeeService.employees();
+    }
 }

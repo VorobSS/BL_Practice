@@ -37,10 +37,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     /**
      * {@inheritDoc}
      */
-//    @Override
-//    @Transactional(readOnly = true)
-//    public List<EmployeeView> employees() {
-//        List<Employee> all = dao.all();
-//        return mapperFacade.mapAsList(all, EmployeeView.class);
-//    }
+    @Override
+    @Transactional(readOnly = true)
+    public List<EmployeeView> employees() {
+        List<Employee> all = dao.all();
+        return mapperFacade.mapAsList(all, EmployeeView.class);
+    }
 }

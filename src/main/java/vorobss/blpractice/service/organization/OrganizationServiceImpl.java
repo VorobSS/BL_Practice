@@ -38,10 +38,10 @@ public class OrganizationServiceImpl implements OrganizationService {
     /**
      * {@inheritDoc}
      */
-//    @Override
-//    @Transactional(readOnly = true)
-//    public List<OrganizationView> employees() {
-//        List<Employee> all = dao.all();
-//        return mapperFacade.mapAsList(all, OrganizationView.class);
-//    }
+    @Override
+    @Transactional(readOnly = true)
+    public List<OrganizationView> organizations() {
+        List<Organization> all = dao.all();
+        return mapperFacade.mapAsList(all, OrganizationView.class);
+    }
 }

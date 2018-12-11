@@ -21,7 +21,7 @@ public class OrganizationView {
     @ApiModelProperty(value = "Наименование", example = "ООО Ромашка")
     public String name;
 
-    @Size(max = 200)
+    @Size(max = 100)
     @NotEmpty(message = "name cannot be null")
     @ApiModelProperty(value = "Полное наименование", example = "Общество с ограниченной ответственностью Ромашка")
     public String fullName;

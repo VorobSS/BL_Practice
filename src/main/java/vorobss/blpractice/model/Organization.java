@@ -24,7 +24,7 @@ public class Organization {
     /**
      * Полное наименование
      */
-    @Column(name = "full_name", length = 200, nullable = false)
+    @Column(name = "full_name", length = 100, nullable = false)
     private String fullName;
 
     /**

@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface EmployeeDao {
     /**
-     * Получить все объекты Person
+     * Получить все объекты Employee
      *
      * @return
      */
