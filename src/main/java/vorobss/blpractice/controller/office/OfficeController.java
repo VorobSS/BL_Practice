@@ -36,13 +36,13 @@ public class OfficeController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @PostMapping("/office")
-    public void employee(@RequestBody OfficeView office) {
+    public void office(@RequestBody OfficeView office) {
         officeService.add(office);
     }
 
-//    @ApiOperation(value = "Получить список всех офисов", httpMethod = "GET")
-//    @GetMapping("/office")
-//    public List<OfficeView> offices() {
-//        return OfficeService.offices();
-//    }
+    @ApiOperation(value = "Получить список всех офисов", httpMethod = "GET")
+    @GetMapping("/office")
+    public List<OfficeView> offices() {
+        return officeService.offices();
+    }
 }
