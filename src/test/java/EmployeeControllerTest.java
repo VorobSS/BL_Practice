@@ -1,5 +1,3 @@
-package vorobss.blpractice.controller.employee;
-
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpEntity;
