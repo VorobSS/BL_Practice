@@ -125,21 +125,21 @@ public class Employee {
         this.phone = phone;
     }
 
-//    public Set<Office> getOffices() {
-//        if (offices == null) {
-//            offices = new HashSet<>();
-//        }
-//        return offices;
-//    }
+    public Set<Office> getOffices() {
+        if (offices == null) {
+            offices = new HashSet<>();
+        }
+        return offices;
+    }
 
-//    public void addOffice(Office office) {
-//        getOffices().add(office);
-//        office.getEmployees().add(this);
-//    }
+    public void addOffice(Office office) {
+        getOffices().add(office);
+        office.getEmployees().add(this);
+    }
 
-//    public void removeOffice(Office office) {
-//        getOffices().remove(office);
-//        office.getEmployees().remove(this);
-//    }
+    public void removeOffice(Office office) {
+        getOffices().remove(office);
+        office.getEmployees().remove(this);
+    }
 
 }

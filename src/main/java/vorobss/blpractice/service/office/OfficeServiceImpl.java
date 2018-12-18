@@ -31,7 +31,7 @@ public class OfficeServiceImpl implements OfficeService {
     @Transactional
     public void add(OfficeView view) {
         Office office = new Office(view.name, view.phone);
-//        dao.save(office);
+        dao.save(office);
     }
 
     /**

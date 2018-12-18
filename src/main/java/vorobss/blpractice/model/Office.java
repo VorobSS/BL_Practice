@@ -1,6 +1,8 @@
 package vorobss.blpractice.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Office {
 
@@ -27,6 +29,9 @@ public class Office {
     @Column(name = "phone")
     private String phone;
 
+    @ManyToMany(mappedBy = "employee")
+    private Set<Employee> employees;
+
     public Office(String name, String phone) {
         this.name = name;
         this.phone = phone;
@@ -50,5 +55,16 @@ public class Office {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Set<Employee> getEmployees() {
+        if (employees == null) {
+            employees = new HashSet<>();
+        }
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 }
