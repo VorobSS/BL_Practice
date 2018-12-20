@@ -29,16 +29,19 @@ public class OrganizationView {
     @Size(max = 15)
     @NotEmpty(message = "name cannot be null")
     @ApiModelProperty(value = "ИНН", example = "123456789")
-    public int inn;
+    public String inn;
 
     @Size(max = 15)
     @NotEmpty(message = "name cannot be null")
     @ApiModelProperty(value = "КПП", example = "123456789")
-    public int kpp;
+    public String kpp;
 
     @Size(max = 50)
     @ApiModelProperty(value = "Номер телефона", example = "8-999-888-77-66")
     public String phone;
+
+    @ApiModelProperty(value = "Активна", example = "true")
+    public Boolean isActive;
 
     @Override
     public String toString() {

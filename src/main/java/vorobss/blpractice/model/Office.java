@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "office")
 public class Office {
 
     @Id
@@ -14,8 +16,8 @@ public class Office {
     /**
      * Служебное поле hibernate
      */
-    @Version
-    private Integer version;
+//    @Version
+//    private Integer version;
 
     /**
      * Наименование
@@ -29,8 +31,35 @@ public class Office {
     @Column(name = "phone")
     private String phone;
 
-    @ManyToMany(mappedBy = "employee")
+    @ManyToMany(mappedBy = "offices")
     private Set<Employee> employees;
+
+    public Set<Employee> getEmployees() {
+        if (employees == null) {
+            employees = new HashSet<>();
+        }
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
+
+    private Organization organization;
+
+    @ManyToOne
+    @JoinColumn(name = "org_id")
+    public Organization getOrganization() {
+        return this.organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+    public Office() {
+
+    }
 
     public Office(String name, String phone) {
         this.name = name;
@@ -57,14 +86,4 @@ public class Office {
         this.phone = phone;
     }
 
-    public Set<Employee> getEmployees() {
-        if (employees == null) {
-            employees = new HashSet<>();
-        }
-        return employees;
-    }
-
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
-    }
 }

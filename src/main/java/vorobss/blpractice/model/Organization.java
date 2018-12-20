@@ -1,7 +1,11 @@
 package vorobss.blpractice.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
+@Entity
+@Table(name = "organization")
 public class Organization {
 
     @Id
@@ -12,8 +16,8 @@ public class Organization {
     /**
      * Служебное поле hibernate
      */
-    @Version
-    private Integer version;
+//    @Version
+//    private Integer version;
 
     /**
      * Наименование
@@ -31,13 +35,13 @@ public class Organization {
      * ИНН
      */
     @Column(name = "inn", length = 15, nullable = false)
-    private int inn;
+    private String inn;
 
     /**
      * КПП
      */
     @Column(name = "kpp", length = 15, nullable = false)
-    private int kpp;
+    private String kpp;
 
     /**
      * Номер телефона организации
@@ -45,12 +49,53 @@ public class Organization {
     @Column(name = "phone")
     private String phone;
 
-    public Organization(String name, String fullName, int inn, int kpp, String phone) {
+    /**
+     * Адрес организации
+     */
+//    @Column(name = "address")
+//    private long address;
+
+    /**
+     * Активна
+     */
+    @Column(name = "is_active")
+    private boolean isActive;
+
+    private Set<Office> offices = new HashSet<>();
+
+    @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL)
+    public Set<Office> getOffices() {
+        return this.offices;
+    }
+
+    public void setOffices(Set<Office> offices) {
+        this.offices = offices;
+    }
+
+    public void addOffice(Office office) {
+        office.setOrganization(this);
+        getOffices().add(office);
+    }
+
+    public void removeOffice(Office office) {
+        getOffices().remove(office);
+    }
+
+    /**
+     * Конструктор для hibernate
+     */
+    public Organization() {
+
+    }
+
+    public Organization(String name, String fullName, String inn, String kpp, String phone, boolean isActive) {
         this.name = name;
         this.fullName = fullName;
         this.inn = inn;
         this.kpp = kpp;
         this.phone = phone;
+        //this.address = address;
+        this.isActive = isActive;
     }
 
     public Long getId() {
@@ -73,19 +118,19 @@ public class Organization {
         this.fullName = fullName;
     }
 
-    public int getInn() {
+    public String getInn() {
         return inn;
     }
 
-    public void setInn(int inn) {
+    public void setInn(String inn) {
         this.inn = inn;
     }
 
-    public int getKpp() {
+    public String getKpp() {
         return kpp;
     }
 
-    public void setKpp(int kpp) {
+    public void setKpp(String kpp) {
         this.kpp = kpp;
     }
 

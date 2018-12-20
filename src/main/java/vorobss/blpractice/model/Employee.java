@@ -33,8 +33,8 @@ public class Employee {
     /**
      * Служебное поле hibernate
      */
-    @Version
-    private Integer version;
+//    @Version
+//    private Integer version;
 
     /**
      * Иия
@@ -73,12 +73,33 @@ public class Employee {
     )
     private Set<Office> offices;
 
-    /**
-     * Конструктор для hibernate
-     * @param firstName
-     * @param lastName
-     */
-    public Employee(@Size(max = 50) @NotEmpty(message = "name cannot be null") String firstName, @Size(max = 50) @NotEmpty(message = "name cannot be null") String lastName) {
+//    /**
+//     * Конструктор для hibernate
+//     * @param firstName
+//     * @param lastName
+//     */
+//    public Employee(@Size(max = 50) @NotEmpty(message = "name cannot be null") String firstName, @Size(max = 50) @NotEmpty(message = "name cannot be null") String lastName) {
+//
+//    }
+
+    public Set<Office> getOffices() {
+        if (offices == null) {
+            offices = new HashSet<>();
+        }
+        return offices;
+    }
+
+    public void addOffice(Office office) {
+        getOffices().add(office);
+        office.getEmployees().add(this);
+    }
+
+    public void removeOffice(Office office) {
+        getOffices().remove(office);
+        office.getEmployees().remove(this);
+    }
+
+    public Employee() {
 
     }
 
@@ -123,23 +144,6 @@ public class Employee {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public Set<Office> getOffices() {
-        if (offices == null) {
-            offices = new HashSet<>();
-        }
-        return offices;
-    }
-
-    public void addOffice(Office office) {
-        getOffices().add(office);
-        office.getEmployees().add(this);
-    }
-
-    public void removeOffice(Office office) {
-        getOffices().remove(office);
-        office.getEmployees().remove(this);
     }
 
 }

@@ -17,7 +17,6 @@ public class EmployeeControllerTest {
         ResponseEntity<Employee> response = restTemplate.postForEntity(
                 "http://localhost:8888/employee", entity, Employee.class);
         Employee e = response.getBody();
-        System.out.println(e.toString());
         Assert.assertEquals(newEmp, e);
     }
 }

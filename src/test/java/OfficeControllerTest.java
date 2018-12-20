@@ -18,7 +18,6 @@ class OfficeControllerTest {
         ResponseEntity<Office> response = restTemplate.postForEntity(
                 "http://localhost:8888/office", entity, Office.class);
         Office of = response.getBody();
-        System.out.println(of.toString());
         Assert.assertEquals(newOf, of);
     }
 }
