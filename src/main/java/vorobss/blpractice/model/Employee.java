@@ -73,14 +73,14 @@ public class Employee {
     )
     private Set<Office> offices;
 
-//    /**
-//     * Конструктор для hibernate
-//     * @param firstName
-//     * @param lastName
-//     */
-//    public Employee(@Size(max = 50) @NotEmpty(message = "name cannot be null") String firstName, @Size(max = 50) @NotEmpty(message = "name cannot be null") String lastName) {
-//
-//    }
+    /**
+     * Конструктор для hibernate
+     * @param firstName
+     * @param lastName
+     */
+    public Employee(@Size(max = 50) @NotEmpty(message = "name cannot be null") String firstName, @Size(max = 50) @NotEmpty(message = "name cannot be null") String lastName) {
+
+    }
 
     public Set<Office> getOffices() {
         if (offices == null) {

@@ -47,7 +47,7 @@ public class Office {
 
     private Organization organization;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "org_id")
     public Organization getOrganization() {
         return this.organization;
