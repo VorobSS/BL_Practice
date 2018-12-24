@@ -61,28 +61,28 @@ public class Organization {
     @Column(name = "is_active")
     private boolean isActive;
 
-    private Set<Office> offices = new HashSet<>();
+//    private Set<Office> offices = new HashSet<>();
 
-    //@OneToMany(targetEntity = Office.class, mappedBy = "organization", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Access(AccessType.PROPERTY)
-    @OneToMany(targetEntity = Office.class, cascade = CascadeType.ALL, orphanRemoval=true)
-    //@JoinColumn(name = "org_id")
-    public Set<Office> getOffices() {
-        return this.offices;
-    }
-
-    public void setOffices(Set<Office> offices) {
-        this.offices = offices;
-    }
-
-    public void addOffice(Office office) {
-        office.setOrganization(this);
-        getOffices().add(office);
-    }
-
-    public void removeOffice(Office office) {
-        getOffices().remove(office);
-    }
+//    //@OneToMany(targetEntity = Office.class, mappedBy = "organization", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @Access(AccessType.PROPERTY)
+//    @OneToMany(targetEntity = Office.class, cascade = CascadeType.ALL, orphanRemoval=true)
+//    //@JoinColumn(name = "org_id")
+//    public Set<Office> getOffices() {
+//        return this.offices;
+//    }
+//
+//    public void setOffices(Set<Office> offices) {
+//        this.offices = offices;
+//    }
+//
+//    public void addOffice(Office office) {
+//        office.setOrganization(this);
+//        getOffices().add(office);
+//    }
+//
+//    public void removeOffice(Office office) {
+//        getOffices().remove(office);
+//    }
 
     /**
      * Конструктор для hibernate

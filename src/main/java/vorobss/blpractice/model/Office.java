@@ -45,17 +45,22 @@ public class Office {
         this.employees = employees;
     }
 
-    private Organization organization;
+//    private Organization organization;
+    private Long organization;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "org_id")
-    public Organization getOrganization() {
+    @JoinColumn(name = "org_id", referencedColumnName = "id")
+    public Long getOrganization() {
         return this.organization;
     }
 
     public void setOrganization(Organization organization) {
-        this.organization = organization;
+        this.organization = organization.getId();
     }
+
+    //свзь с адрессом
+
+    //-----------
 
     public Office() {
 

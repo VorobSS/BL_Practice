@@ -1,60 +1,60 @@
---CREATE TABLE address (
---	id                   bigint  NOT NULL  AUTO_INCREMENT,
---	countrie             bigint  NOT NULL  ,
---	city                 bigint  NOT NULL  ,
---	street               bigint  NOT NULL  ,
---	house                varchar(10)  NOT NULL  ,
---	CONSTRAINT pk_address_id PRIMARY KEY ( id ),
---	CONSTRAINT unq_address_city UNIQUE ( city ) ,
---	CONSTRAINT unq_address_countrie UNIQUE ( countrie )
--- ) ;
---
---CREATE INDEX idx_address_id ON address ( id );
---
---COMMENT ON TABLE address IS 'Справочник адресов';
---
---ALTER TABLE address MODIFY id bigint  NOT NULL  AUTO_INCREMENT COMMENT 'Уникальный идентификатор';
---
---ALTER TABLE address MODIFY countrie bigint  NOT NULL   COMMENT 'Страна';
---
---ALTER TABLE address MODIFY city bigint  NOT NULL   COMMENT 'Город';
---
---ALTER TABLE address MODIFY street bigint  NOT NULL   COMMENT 'Улица';
---
---ALTER TABLE address MODIFY house varchar(10)  NOT NULL   COMMENT 'Дом/строение';
---
---CREATE TABLE city (
---	id                   bigint  NOT NULL  ,
---	name                 varchar(100)  NOT NULL  ,
---	CONSTRAINT pk_city_id PRIMARY KEY ( id )
--- ) ;
---
---CREATE INDEX idx_city_id ON city ( id );
---
---CREATE INDEX idx_city_name ON city ( name );
---
---COMMENT ON TABLE city IS 'Город';
---
---ALTER TABLE city MODIFY id bigint  NOT NULL   COMMENT 'Уникальный идентификатор';
---
---ALTER TABLE city MODIFY name varchar(100)  NOT NULL   COMMENT 'Наименование города';
---
---CREATE TABLE countrie (
---	id                   bigint  NOT NULL  AUTO_INCREMENT,
---	code                 int  NOT NULL  ,
---	name                 varchar(100)  NOT NULL  ,
---	CONSTRAINT pk_countrie_id PRIMARY KEY ( id ),
---	CONSTRAINT unq_countrie_code UNIQUE ( code )
--- ) ;
---
---CREATE INDEX idx_countrie_id ON countrie ( id );
---
---COMMENT ON TABLE countrie IS 'Страна';
---
---ALTER TABLE countrie MODIFY id bigint  NOT NULL  AUTO_INCREMENT COMMENT 'Уникальный идентификатор';
---
---ALTER TABLE countrie MODIFY name varchar(100)  NOT NULL   COMMENT 'Наименование';
---
+CREATE TABLE address (
+	id                   bigint  NOT NULL  AUTO_INCREMENT,
+	countrie             bigint  NOT NULL  ,
+	city                 bigint  NOT NULL  ,
+	street               varchar(100)  NOT NULL  ,
+	house                varchar(10)  NOT NULL  ,
+	CONSTRAINT pk_address_id PRIMARY KEY ( id ),
+	CONSTRAINT unq_address_city UNIQUE ( city ) ,
+	CONSTRAINT unq_address_countrie UNIQUE ( countrie )
+ ) ;
+
+CREATE INDEX idx_address_id ON address ( id );
+
+COMMENT ON TABLE address IS 'Справочник адресов';
+
+ALTER TABLE address MODIFY id bigint  NOT NULL  AUTO_INCREMENT COMMENT 'Уникальный идентификатор';
+
+ALTER TABLE address MODIFY countrie bigint  NOT NULL   COMMENT 'Страна';
+
+ALTER TABLE address MODIFY city bigint  NOT NULL   COMMENT 'Город';
+
+ALTER TABLE address MODIFY street bigint  NOT NULL   COMMENT 'Улица';
+
+ALTER TABLE address MODIFY house varchar(10)  NOT NULL   COMMENT 'Дом/строение';
+
+CREATE TABLE city (
+	id                   bigint  NOT NULL  ,
+	name                 varchar(100)  NOT NULL  ,
+	CONSTRAINT pk_city_id PRIMARY KEY ( id )
+ ) ;
+
+CREATE INDEX idx_city_id ON city ( id );
+
+CREATE INDEX idx_city_name ON city ( name );
+
+COMMENT ON TABLE city IS 'Город';
+
+ALTER TABLE city MODIFY id bigint  NOT NULL   COMMENT 'Уникальный идентификатор';
+
+ALTER TABLE city MODIFY name varchar(100)  NOT NULL   COMMENT 'Наименование города';
+
+CREATE TABLE countrie (
+	id                   bigint  NOT NULL  AUTO_INCREMENT,
+	code                 int  NOT NULL  ,
+	name                 varchar(100)  NOT NULL  ,
+	CONSTRAINT pk_countrie_id PRIMARY KEY ( id ),
+	CONSTRAINT unq_countrie_code UNIQUE ( code )
+ ) ;
+
+CREATE INDEX idx_countrie_id ON countrie ( id );
+
+COMMENT ON TABLE countrie IS 'Страна';
+
+ALTER TABLE countrie MODIFY id bigint  NOT NULL  AUTO_INCREMENT COMMENT 'Уникальный идентификатор';
+
+ALTER TABLE countrie MODIFY name varchar(100)  NOT NULL   COMMENT 'Наименование';
+
 --CREATE TABLE doc_type (
 --	id                   bigint  NOT NULL  AUTO_INCREMENT,
 --	code                 int  NOT NULL  ,
