@@ -16,8 +16,8 @@ public class Organization {
     /**
      * Служебное поле hibernate
      */
-//    @Version
-//    private Integer version;
+    @Version
+    private Integer version;
 
     /**
      * Наименование
@@ -63,7 +63,10 @@ public class Organization {
 
     private Set<Office> offices = new HashSet<>();
 
-    @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL)
+    //@OneToMany(targetEntity = Office.class, mappedBy = "organization", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Access(AccessType.PROPERTY)
+    @OneToMany(targetEntity = Office.class, cascade = CascadeType.ALL, orphanRemoval=true)
+    //@JoinColumn(name = "org_id")
     public Set<Office> getOffices() {
         return this.offices;
     }

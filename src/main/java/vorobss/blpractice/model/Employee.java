@@ -33,8 +33,8 @@ public class Employee {
     /**
      * Служебное поле hibernate
      */
-//    @Version
-//    private Integer version;
+    @Version
+    private Integer version;
 
     /**
      * Иия

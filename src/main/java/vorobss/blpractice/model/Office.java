@@ -16,8 +16,8 @@ public class Office {
     /**
      * Служебное поле hibernate
      */
-//    @Version
-//    private Integer version;
+    @Version
+    private Integer version;
 
     /**
      * Наименование

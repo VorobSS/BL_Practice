@@ -38,6 +38,6 @@ public class EmployeeControllerTest {
         ResponseEntity<Employee> response = restTemplate.postForEntity(
                 "http://localhost:8888/employee", request, Employee.class);
         Employee e = response.getBody();
-        Assert.assertEquals(requestBody.toString(), e.toString());
+        Assert.assertEquals(requestBody, e);
     }
 }

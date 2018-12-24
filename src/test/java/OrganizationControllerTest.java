@@ -37,6 +37,6 @@ class OrganizationControllerTest {
         ResponseEntity<Organization> response = restTemplate.postForEntity(
                 "http://localhost:8888/organization", request, Organization.class);
         Organization o = response.getBody();
-        Assert.assertEquals(requestBody.toString(), o.toString());
+        Assert.assertEquals(requestBody, o);
     }
     }
