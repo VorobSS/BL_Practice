@@ -22,4 +22,16 @@ public class Сity {
      */
     @Column(name = "name", length = 100, nullable = false)
     private String name;
+
+    public Сity() {
+
+    }
+
+    public Сity(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

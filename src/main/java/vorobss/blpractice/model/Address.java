@@ -29,6 +29,43 @@ public class Address {
     @Column(name = "house", length = 50, nullable = false)
     private String house;
 
+    private Long city;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "city", referencedColumnName = "id")
+    public Long getCity() {
+        return this.city;
+    }
+
+    public void setCity(Сity city) {
+        this.city = city.getId();
+    }
+
+    private Long countrie;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "countrie", referencedColumnName = "id")
+    public Long getCountrie() {
+        return this.countrie;
+    }
+
+    public void setCountrie(Countrie countrie) {
+        this.countrie = countrie.getId();
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Office office;
+
+    public Address() {
+
+    }
+
+    public Address(String street, String house) {
+        this.street = street;
+        this.house = house;
+    }
+
     public Long getId() {
         return id;
     }
@@ -48,4 +85,5 @@ public class Address {
     public void setHouse(String house) {
         this.house = house;
     }
+
 }
