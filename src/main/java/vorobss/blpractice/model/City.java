@@ -4,8 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "city")
-public class Сity {
-
+public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -23,11 +22,11 @@ public class Сity {
     @Column(name = "name", length = 100, nullable = false)
     private String name;
 
-    public Сity() {
+    public City() {
 
     }
 
-    public Сity(String name) {
+    public City(String name) {
         this.name = name;
     }
 

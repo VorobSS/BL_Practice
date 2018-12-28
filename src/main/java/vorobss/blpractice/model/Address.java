@@ -37,7 +37,7 @@ public class Address {
         return this.city;
     }
 
-    public void setCity(Сity city) {
+    public void setCity(City city) {
         this.city = city.getId();
     }
 
